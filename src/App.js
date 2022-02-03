@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <button onClick={open}>My Order {orderList.length}</button>
                                        {/* data length from local storage */}
-      <Modal>
+      <Modal className="orderList">
         <div>
           <OrderList orderList={orderList} setOrderList={setOrderList} /> 
           <button onClick={close}>CLOSE</button>
