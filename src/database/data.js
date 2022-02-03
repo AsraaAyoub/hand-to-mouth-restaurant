@@ -6,6 +6,7 @@ const data = [
       "Two fresh high-quality beef patties hot off the grill, on a soft, toasted bun.",
     price: 9,
     category: "burger",
+    image:"https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42.jpg"
   },
   {
     id: 2645902,
