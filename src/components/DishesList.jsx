@@ -2,7 +2,7 @@ import React from "react";
 import dishes from "../database/data";
 import Dish from "./Dish";
 import "../style/DishList.css";
-function DishesList({ priceFilter, catFilter }) {
+function DishesList({ priceFilter, catFilter,orderList, setOrderList }) {
   const dishItems = dishes;
   const [minPrice, maxPrice] = priceFilter;
 
@@ -19,6 +19,10 @@ function DishesList({ priceFilter, catFilter }) {
             price={dish.price}
             description={dish.description}
             img={dish.image}
+            setOrderList = {setOrderList}
+            orderList = {orderList}
+        
+
           ></Dish>
         ))}
     </ul>
