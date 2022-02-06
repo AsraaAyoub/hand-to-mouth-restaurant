@@ -10,16 +10,20 @@ function OrderList({ orderList, setOrderList }) {
     }
   }
 
-  function increase(name) {
-    //   setOrderList((order)=>{
-    //     var found = orderList.find((element)=>
-    //    element.name.name == name
-    //     )
-    //    found.quantity=found.quantity+1;
-    //   }
+  function increase(order) {
+    setOrderList((preState) =>
+    preState.map((item) => (item.name.name === order.name.name ? { ...item, quantity: item.quantity +1 } : item)),
+  );
   }
 
-  function decrease(name) {}
+  function decrease(order) {
+    if(order.quantity===1){
+      removeItem(order.name.name)
+    }
+    setOrderList((preState) =>
+    preState.map((item) => (item.name.name === order.name.name ? { ...item, quantity: item.quantity -1 } : item)),
+  ); 
+  }
 
   const removeItem = (name) => {
     setOrderList(
@@ -38,15 +42,18 @@ function OrderList({ orderList, setOrderList }) {
         {orderList.map((order) => (
           <li key={order.name.name}>
             <h3>
-              {order.name.name} {order.price.price}${" "}
+              {order.name.name} {order.price.price}$
             </h3>
-            <button onClick={() => increase(order.name.name)}>+</button>
-            <button onClick={() => decrease(order.name.name)}>-</button>
+            <div> {order.quantity}</div>
+       
+            <button onClick={() => increase(order)}>+</button>
+            <button onClick={() => decrease(order)}>-</button>
             <button onClick={() => removeItem(order.name.name)}>Remove</button>
           </li>
         ))}
       </ul>
-      <button onClick={removeAllHandler}>Remove All</button>
+      {orderList.length?<button onClick={removeAllHandler}>Remove All</button>:null}
+      
       <h3> total: {total}</h3>
     </div>
   );
