@@ -10,7 +10,7 @@ function Dish({name,description,category,price,img,orderList,setOrderList}) {
            found=1;
          }
          if(found==0)
-        setOrderList(orderList.concat({'name':{name} , 'price':{price}}));
+        setOrderList(orderList.concat({'name':{name} , 'price':{price} , 'quantity':1}));
         
         // add to local sotrage and redirect to home
     }
