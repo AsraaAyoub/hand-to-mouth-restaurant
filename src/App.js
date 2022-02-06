@@ -23,7 +23,6 @@ function App() {
 
   //use effect and get orderlist from a storage (once)
 
-
   return (
     <div className="App">
       <button onClick={open}>My Order {orderList.length}</button>
