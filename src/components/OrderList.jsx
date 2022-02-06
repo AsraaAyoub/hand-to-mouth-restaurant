@@ -18,13 +18,6 @@ const removeItem = (name) => {
    )
 }
 
-const removeAll = () =>{
- setOrderList(
-
- 
-
- )
-}
 
 return (
   <div className="orderList"> 
@@ -39,7 +32,7 @@ return (
 
       ))}
     </ul>
-    <button onClick={() => removeAll}>Remove All</button>
+    <button onClick={() => setOrderList([])}>Remove All</button>
     <h3> total: {total}</h3>
 
   </div>
