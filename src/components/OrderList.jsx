@@ -6,7 +6,7 @@ function OrderList({ orderList, setOrderList }) {
   var total = 0;
   if (orderList) {
     for (var i = 0; i < orderList.length; i++) {
-      total += orderList[i].price.price;
+      total += orderList[i].price.price * orderList[i].quantity;
     }
   }
 
@@ -34,6 +34,7 @@ function OrderList({ orderList, setOrderList }) {
   };
   const removeAllHandler = () => {
     setOrderList([]);
+    window.localStorage.removeItem('orders');
   };
   return (
     <div className="orderList">

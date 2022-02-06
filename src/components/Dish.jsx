@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, ReactElement } from 'react';
+
 function Dish({
   name,
   description,
@@ -7,21 +8,31 @@ function Dish({
   img,
   orderList,
   setOrderList,
-}) {
+}) 
+{
+
   const addItem = (itemName) => {
     var found = 0;
+ 
     // var found = orderList.find((element)=>
     // element.name.name = itemName
     //  )
     for (var i = 0; i < orderList.length; i++) {
       if (orderList[i].name.name == itemName) found = 1;
     }
-    if (found == 0)
+    if (found == 0) {
       setOrderList(
         orderList.concat({ name: { name }, price: { price }, quantity: 1 })
-      );
+            // add to local sotrage and redirect to home
 
-    // add to local sotrage and redirect to home
+      );
+      localStorage.setItem('orders',[JSON.stringify(orderList)])
+
+
+
+    }
+
+
   };
   return (
     <li key={name}>
