@@ -43,6 +43,7 @@ ul {
 }
 
 .descst {
+  height: 150px;
   text-transform: capitalize;
   font-size: 22px;
   border-bottom: 1px dashed #333;
@@ -59,15 +60,16 @@ ul {
 .titlest {
   text-transform: capitalize;
   font-size: 30px;
-
   margin-bottom: 5px;
   padding-bottom: 5px;
 }
 
 .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-  grid-gap: 1.5rem;
+  grid-template-columns: 300px 300px;
+  /* grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); */
+  grid-gap: 2rem;
+  row-gap: 50px;
 }
 
 .box {
@@ -131,4 +133,7 @@ ul {
 
 .btnst:hover {
   background-color: wheat;
+}
+li {
+  max-width: 300px;
 }
