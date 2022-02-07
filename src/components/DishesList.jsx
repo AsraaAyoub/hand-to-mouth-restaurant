@@ -2,12 +2,12 @@ import React from "react";
 import dishes from "../database/data";
 import Dish from "./Dish";
 import "../style/DishList.css";
-function DishesList({ priceFilter, catFilter,orderList, setOrderList }) {
+function DishesList({ priceFilter, catFilter, orderList, setOrderList }) {
   const dishItems = dishes;
   const [minPrice, maxPrice] = priceFilter;
 
   return (
-    <ul>
+    <ul class="box-container">
       {dishItems
         .filter((dish) => dish.category === catFilter || catFilter === "all")
         .filter((dish) => dish.price >= minPrice && dish.price <= maxPrice)
@@ -19,10 +19,8 @@ function DishesList({ priceFilter, catFilter,orderList, setOrderList }) {
             price={dish.price}
             description={dish.description}
             img={dish.image}
-            setOrderList = {setOrderList}
-            orderList = {orderList}
-        
-
+            setOrderList={setOrderList}
+            orderList={orderList}
           ></Dish>
         ))}
     </ul>

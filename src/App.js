@@ -12,14 +12,13 @@ function App() {
   const [priceFilter, setPriceFilter] = React.useState([0.5, 9]);
   const [catFilter, setCatFilter] = React.useState("all");
   const [orderList, setOrderList] = React.useState([]);
-  
-  // not working
-  useEffect(()=>{
-    const localData = localStorage.getItem('orders')
-    console.log(localData)
-    setOrderList( localData ? JSON.parse(localData) : []);
 
-  },[])
+  // not working
+  useEffect(() => {
+    const localData = localStorage.getItem("orders");
+    console.log(localData);
+    setOrderList(localData ? JSON.parse(localData) : []);
+  }, []);
   console.log(orderList);
 
   const [Modal, open, close, isOpen] = useModal("root", {
@@ -29,10 +28,11 @@ function App() {
 
   //use effect and get orderlist from a storage (once)
 
-
   return (
     <div className="App">
-      <button onClick={open}>My Order {orderList.length}</button>
+      <button className="buttonStyle" onClick={open}>
+        My Order {orderList.length}
+      </button>
       {/* data length from local storage */}
       <Modal className="orderList">
         <div>
@@ -41,7 +41,7 @@ function App() {
         </div>
       </Modal>
 
-      <h1> Hand to mouth resturant </h1>
+      <h1 class="title">Hand to Mouth Restaurant</h1>
       <PriceFilter
         priceFilter={priceFilter}
         setPriceFilter={setPriceFilter}
