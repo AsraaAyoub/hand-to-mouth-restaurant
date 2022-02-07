@@ -26,7 +26,8 @@ function Dish({
             // add to local sotrage and redirect to home
 
       );
-      localStorage.setItem('orders',[JSON.stringify(orderList)])
+      console.log(orderList)
+      // localStorage.setItem('orders',[JSON.stringify(orderList)])
 
 
 
