@@ -29,26 +29,29 @@ function App() {
 
   return (
     <div className="App">
-      <div className="topping">
-        <button className="buttonStyle" onClick={open}>
+    
+
+      <button className="buttonStyle" onClick={open}>
           My Order {orderList.length}
         </button>
-        <div class="title">Hand to Mouth Restaurant</div>
-      </div>
-
+        
       <Modal className="orderList">
         <div>
           <OrderList orderList={orderList} setOrderList={setOrderList} />
           <button onClick={close}>CLOSE</button>
         </div>
       </Modal>
+      <h1 class="title">Hand to Mouth Restaurant</h1>
+
       <main>
+ 
         <section className="filters">
           <form>
             <PriceFilter
               priceFilter={priceFilter}
               setPriceFilter={setPriceFilter}
             ></PriceFilter>
+            <br></br>
             <CatFilter
               catFilter={catFilter}
               setCatFilter={setCatFilter}
@@ -64,6 +67,7 @@ function App() {
             setOrderList={setOrderList}
           ></DishesList>
         </section>
+        
       </main>
     </div>
   );

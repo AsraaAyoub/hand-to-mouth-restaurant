@@ -6,34 +6,49 @@
 .App {
   text-align: center;
 }
-
-.App {
-  width: 1200px;
-  margin: 100px auto;
+body {
+  font-family: "Indie Flower", cursive;
+  font-size: 22px;
 }
 
-.buttonStyle {
-  display: flex;
-  text-align: right;
+/* .App {
+  width: 1200px;
+  margin: 0px auto 10px auto;
+} */
 
+.buttonStyle {
+  font-family: "Indie Flower", cursive;
+  font-weight: 700;
+  position: sticky;
+  top: 20px;
   background-color: #ff7720;
-  border-radius: 10%;
+  border-radius: 10px;
   border: none;
   color: black;
   padding: 15px 32px;
-
+  /* margin-top: 50px; */
+  margin-right: 20px;
   text-decoration: none;
   cursor: pointer;
   font-size: 16px;
-  margin-right: 0;
+  float: right;
 }
 
 .buttonStyle:hover {
-  background-color: blue;
+  background-color: rgba(0, 0, 255, 0.49);
+}
+
+.title {
+  padding: 20px;
+  font-size: x-large;
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .filters {
-  flex-basis: 20rem;
+  flex-basis: 18rem;
   flex-grow: 1;
   padding: 2rem;
   background-color: #ff7720;
@@ -57,4 +72,17 @@ main {
 form {
   position: sticky;
   top: 2rem;
+}
+label {
+  display: block;
+  text-transform: capitalize;
+}
+
+label + label {
+  margin-top: 0.25rem;
+}
+
+input {
+  margin-left: 0.5rem;
+  vertical-align: middle;
 }

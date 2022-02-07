@@ -15,7 +15,6 @@ function PriceFilter({ priceFilter, setPriceFilter }) {
           onChange={(e) => setPriceFilter([e.target.value, priceFilter[1]])}
         />
       </label>
-
       <label htmlFor="max-price">
         Max Price
         <input
