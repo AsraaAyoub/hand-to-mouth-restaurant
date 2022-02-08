@@ -1,7 +1,7 @@
-.orderList {
+/* .orderList {
   color: white;
   background-color: rgba(0, 0, 0, 0.733);
-}
+} */
 
 .App {
   text-align: center;
@@ -90,4 +90,8 @@ label + label {
 input {
   margin-left: 0.5rem;
   vertical-align: middle;
+}
+
+.orderListStyle {
+  justify-content: center;
 }

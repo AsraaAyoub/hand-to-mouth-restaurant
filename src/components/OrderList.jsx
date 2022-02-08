@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/OrderList.css";
+import { FaTimes } from "react-icons/fa";
 
 function OrderList({ orderList, setOrderList }) {
   console.log(orderList);
@@ -12,17 +13,25 @@ function OrderList({ orderList, setOrderList }) {
 
   function increase(order) {
     setOrderList((preState) =>
-    preState.map((item) => (item.name.name === order.name.name ? { ...item, quantity: item.quantity +1 } : item)),
-  );
+      preState.map((item) =>
+        item.name.name === order.name.name
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
   }
 
   function decrease(order) {
-    if(order.quantity===1){
-      removeItem(order.name.name)
+    if (order.quantity === 1) {
+      removeItem(order.name.name);
     }
     setOrderList((preState) =>
-    preState.map((item) => (item.name.name === order.name.name ? { ...item, quantity: item.quantity -1 } : item)),
-  ); 
+      preState.map((item) =>
+        item.name.name === order.name.name
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
   }
 
   const removeItem = (name) => {
@@ -34,7 +43,7 @@ function OrderList({ orderList, setOrderList }) {
   };
   const removeAllHandler = () => {
     setOrderList([]);
-    window.localStorage.removeItem('orders');
+    window.localStorage.removeItem("orders");
   };
   return (
     <div className="orderList">
@@ -43,18 +52,39 @@ function OrderList({ orderList, setOrderList }) {
         {orderList.map((order) => (
           <li key={order.name.name}>
             <h3>
+              <FaTimes
+                style={{ color: "red", cursor: "pointer" }}
+                onClick={() => removeItem(order.name.name)}
+              />{" "}
               {order.name.name} {order.price.price}$
             </h3>
+            <div>
+              <img width="50px" height="60px" src={order.img.img} alt="" />
+            </div>
             <div> {order.quantity}</div>
-       
-            <button onClick={() => increase(order)}>+</button>
-            <button onClick={() => decrease(order)}>-</button>
-            <button onClick={() => removeItem(order.name.name)}>Remove</button>
+
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => increase(order)}
+            >
+              +
+            </button>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => decrease(order)}
+            >
+              -
+            </button>
+            {/* <button onClick={() => removeItem(order.name.name)}>Remove</button> */}
           </li>
         ))}
       </ul>
-      {orderList.length?<button onClick={removeAllHandler}>Remove All</button>:null}
-      
+      {orderList.length ? (
+        <button style={{ cursor: "pointer" }} onClick={removeAllHandler}>
+          Remove All
+        </button>
+      ) : null}
+
       <h3> total: {total}</h3>
     </div>
   );

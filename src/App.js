@@ -29,22 +29,25 @@ function App() {
 
   return (
     <div className="App">
-    
+      <button
+        style={{ cursor: "pointer" }}
+        className="buttonStyle"
+        onClick={open}
+      >
+        My Order {orderList.length}
+      </button>
 
-      <button className="buttonStyle" onClick={open}>
-          My Order {orderList.length}
-        </button>
-        
       <Modal className="orderList">
         <div>
           <OrderList orderList={orderList} setOrderList={setOrderList} />
-          <button onClick={close}>CLOSE</button>
+          <button style={{ cursor: "pointer" }} onClick={close}>
+            CLOSE
+          </button>
         </div>
       </Modal>
       <h1 class="title">Hand to Mouth Restaurant</h1>
 
       <main>
- 
         <section className="filters">
           <form>
             <PriceFilter
@@ -67,7 +70,6 @@ function App() {
             setOrderList={setOrderList}
           ></DishesList>
         </section>
-        
       </main>
     </div>
   );

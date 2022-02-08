@@ -1,0 +1,11 @@
+.orderList {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.733);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+
+/* .orderList {
+  display: flex;
+  justify-content: center;
+} */

@@ -19,17 +19,18 @@ function Dish({
     }
     if (found == 0)
       setOrderList(
-        orderList.concat({ name: { name }, price: { price }, quantity: 1 })
+        orderList.concat({
+          name: { name },
+          price: { price },
+          img: { img },
+          quantity: 1,
+        })
       );
-      console.log(orderList)
-      // localStorage.setItem('orders',[JSON.stringify(orderList)])
+    console.log(orderList);
+    // localStorage.setItem('orders',[JSON.stringify(orderList)])
+  };
 
-
-
-    }
-
-
-    // add to local sotrage and redirect to home
+  // add to local sotrage and redirect to home
   // };
   return (
     <li key={name}>
