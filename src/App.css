@@ -95,3 +95,9 @@ input {
 .orderListStyle {
   justify-content: center;
 }
+
+.close {
+  padding: 4px 8px;
+  margin: 0px 20px;
+  letter-spacing: 1px;
+}

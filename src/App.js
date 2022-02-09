@@ -40,7 +40,7 @@ function App() {
       <Modal className="orderList">
         <div>
           <OrderList orderList={orderList} setOrderList={setOrderList} />
-          <button style={{ cursor: "pointer" }} onClick={close}>
+          <button className="close" style={{ cursor: "pointer" }} onClick={close}>
             CLOSE
           </button>
         </div>

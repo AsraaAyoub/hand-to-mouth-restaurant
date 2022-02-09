@@ -15,14 +15,14 @@ function Dish({
     // element.name.name == itemName
     //  )
     for (var i = 0; i < orderList.length; i++) {
-      if (orderList[i].name.name == itemName) found = 1;
+      if (orderList[i].name == itemName) found = 1;
     }
     if (found == 0)
       setOrderList(
         orderList.concat({
-          name: { name },
-          price: { price },
-          img: { img },
+          name,
+          price,
+          img ,
           quantity: 1,
         })
       );

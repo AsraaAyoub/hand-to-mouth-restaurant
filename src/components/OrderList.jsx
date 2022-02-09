@@ -7,14 +7,14 @@ function OrderList({ orderList, setOrderList }) {
   var total = 0;
   if (orderList) {
     for (var i = 0; i < orderList.length; i++) {
-      total += orderList[i].price.price * orderList[i].quantity;
+      total += orderList[i].price * orderList[i].quantity;
     }
   }
 
   function increase(order) {
     setOrderList((preState) =>
       preState.map((item) =>
-        item.name.name === order.name.name
+        item.name === order.name
           ? { ...item, quantity: item.quantity + 1 }
           : item
       )
@@ -23,11 +23,11 @@ function OrderList({ orderList, setOrderList }) {
 
   function decrease(order) {
     if (order.quantity === 1) {
-      removeItem(order.name.name);
+      removeItem(order.name);
     }
     setOrderList((preState) =>
       preState.map((item) =>
-        item.name.name === order.name.name
+        item.name === order.name
           ? { ...item, quantity: item.quantity - 1 }
           : item
       )
@@ -37,7 +37,7 @@ function OrderList({ orderList, setOrderList }) {
   const removeItem = (name) => {
     setOrderList(
       orderList.filter((element) => {
-        return element.name.name !== name;
+        return element.name !== name;
       })
     );
   };
@@ -50,42 +50,42 @@ function OrderList({ orderList, setOrderList }) {
       <h3> My Order :</h3>
       <ul>
         {orderList.map((order) => (
-          <li key={order.name.name}>
-            <h3>
+          <li key={order.name}>
+            <h3 className="name">
               <FaTimes
                 style={{ color: "red", cursor: "pointer" }}
-                onClick={() => removeItem(order.name.name)}
+                onClick={() => removeItem(order.name)}
               />{" "}
-              {order.name.name} {order.price.price}$
+              {order.name} {order.price}$
             </h3>
             <div>
-              <img width="50px" height="60px" src={order.img.img} alt="" />
+              <img width="100px"  src={order.img} alt="" />
             </div>
-            <div> {order.quantity}</div>
+            <div className="quan"> Quantity :{order.quantity}</div>
 
-            <button
+            <button className="inc"
               style={{ cursor: "pointer" }}
               onClick={() => increase(order)}
             >
               +
-            </button>
-            <button
+            </button >
+            <button className="dec"
               style={{ cursor: "pointer" }}
               onClick={() => decrease(order)}
             >
               -
             </button>
-            {/* <button onClick={() => removeItem(order.name.name)}>Remove</button> */}
+            {/* <button onClick={() => removeItem(order.name)}>Remove</button> */}
           </li>
         ))}
       </ul>
       {orderList.length ? (
-        <button style={{ cursor: "pointer" }} onClick={removeAllHandler}>
+        <button className="removeAll" style={{ cursor: "pointer" }} onClick={removeAllHandler}>
           Remove All
         </button>
       ) : null}
 
-      <h3> total: {total}</h3>
+      <h2> Total :{total}$</h2>
     </div>
   );
 }
