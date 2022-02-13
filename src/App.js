@@ -7,10 +7,12 @@ import OrderList from "./components/OrderList";
 
 import { useModal } from "react-hooks-use-modal";
 import { useEffect } from "react";
+import InputFilter from "./components/InputFilter";
 
 function App() {
   const [priceFilter, setPriceFilter] = React.useState([0.5, 9]);
   const [catFilter, setCatFilter] = React.useState("all");
+  const [inputFilter, setInputFilter] = React.useState("");
   const [orderList, setOrderList] = React.useState(
     JSON.parse(localStorage.getItem("orders")) || []
   );
@@ -40,21 +42,28 @@ function App() {
       <Modal className="orderList">
         <div>
           <OrderList orderList={orderList} setOrderList={setOrderList} />
-          <button className="close" style={{ cursor: "pointer" }} onClick={close}>
+          <button
+            className="close"
+            style={{ cursor: "pointer" }}
+            onClick={close}
+          >
             CLOSE
           </button>
         </div>
       </Modal>
-      <h1 class="title">Hand to Mouth Restaurant</h1>
+      <h1 className="title">Hand to Mouth Restaurant</h1>
 
       <main>
         <section className="filters">
           <form>
+            <InputFilter
+              inputFilter={inputFilter}
+              setInputFilter={setInputFilter}
+            />
             <PriceFilter
               priceFilter={priceFilter}
               setPriceFilter={setPriceFilter}
             ></PriceFilter>
-            <br></br>
             <CatFilter
               catFilter={catFilter}
               setCatFilter={setCatFilter}
@@ -68,6 +77,7 @@ function App() {
             priceFilter={priceFilter}
             orderList={orderList}
             setOrderList={setOrderList}
+            inputFilter={inputFilter}
           ></DishesList>
         </section>
       </main>

@@ -10,6 +10,27 @@
   margin: 20px;
   letter-spacing: 1px;
 }
+.orderList::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+.orderList::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.orderList::-webkit-scrollbar-thumb {
+  background: #ff7520fb;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.orderList::-webkit-scrollbar-thumb:hover {
+  background: #f1e6dfc7;
+}
+
 h2 {
   padding-left: 40px;
 }

@@ -34,13 +34,13 @@ function Dish({
   // };
   return (
     <li key={name}>
-      <h3 class="titlest">{name}</h3>
+      <h3 className="titlest">{name}</h3>
       {img ? <img width="220px" height="240px" src={img} alt="" /> : null}
       <div> {category}</div>
-      <div class="descst">{description}</div>
-      <div class="pricest">{price}$</div>
+      <div className="descst">{description}</div>
+      <div className="pricest">{price}$</div>
       <br></br>{" "}
-      <button class="btnst" onClick={() => addItem(name)}>
+      <button className="btnst" onClick={() => addItem(name)}>
         Add to order
       </button>
     </li>

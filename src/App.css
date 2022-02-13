@@ -10,6 +10,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 body {
   font-family: "Indie Flower", cursive;
   font-size: 22px;
@@ -65,7 +66,7 @@ legend {
 main {
   min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
 }
 
 .dishes {
